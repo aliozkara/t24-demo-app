@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_home_slider">260dp</dimen>
+    <dimen name="activity_home_logo_width">260dp</dimen>
+    <dimen name="activity_home_logo_height">260dp</dimen>
+    <dimen name="activity_home_spinner">120dp</dimen>
+    <dimen name="activity_home_circle_indicator">35dp</dimen>
+    <dimen name="padding_15">20dp</dimen>
+    <dimen name="padding_20">25dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="activity_news_content_recylerview">230dp</dimen>
+    <dimen name="activity_news_content_cardview">270dp</dimen>
+
+
+</resources>

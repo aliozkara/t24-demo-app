@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">T24</string>
+    <string name="facebook_app_id">1632672176767500</string>
+
+    
+    <string name="str_uploading">Yükleniyor</string>
+    <string name="str_message_internet_refused">Internet bağlantısı yok</string>
+    <string name="str_message_internet_error">Beklenmedik bir hata oluştu</string>
+
+</resources>

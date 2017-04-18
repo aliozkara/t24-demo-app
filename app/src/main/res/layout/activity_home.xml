@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.app.t24.ui.activity.HomeActivity">
+
+        <RelativeLayout
+            android:visibility="visible"
+            android:id="@+id/activity_home_rl_splash"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/activity_home_logo_width"
+                android:layout_height="@dimen/activity_home_logo_height"
+                android:src="@drawable/logo"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Spinner
+                android:id="@+id/activity_home_s_category"
+                android:layout_gravity="right"
+                android:layout_width="@dimen/activity_home_spinner"
+                android:layout_height="wrap_content"/>
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_home_rv_list"
+                android:scrollbars="none"
+                android:clipToPadding="false"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader
+                android:id="@+id/activity_home_rvh_header"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/activity_home_vp_slideshow"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/activity_home_slider" />
+
+                        <me.relex.circleindicator.CircleIndicator
+                            android:id="@+id/activity_home_ci_slideshow"
+                            android:background="@color/colorPrimaryDark"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/activity_home_circle_indicator"/>
+
+
+                    </LinearLayout>
+
+            </com.bartoszlipinski.recyclerviewheader2.RecyclerViewHeader>
+
+
+        </FrameLayout>
+
+</LinearLayout>

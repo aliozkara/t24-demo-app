@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.app.t24.ui.activity.NewsContentActivity">
+
+    <include layout="@layout/widget_toolbar"/>
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:layout_margin="@dimen/padding_10"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="@dimen/padding_10"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/activity_news_content_tv_head"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:id="@+id/activity_news_content_iv_image"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <TextView
+                    android:id="@+id/activity_news_content_tv_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/activity_news_content_tv_category"
+                android:layout_marginLeft="@dimen/padding_15"
+                android:layout_marginTop="@dimen/padding_10"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_news_content_rv_list"
+                android:scrollbars="none"
+                android:clipToPadding="false"
+                android:layout_marginLeft="@dimen/padding_15"
+                android:layout_marginTop="@dimen/padding_10"
+                android:layout_marginBottom="@dimen/padding_20"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_news_content_recylerview" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

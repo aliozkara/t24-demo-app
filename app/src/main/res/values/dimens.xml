@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="activity_home_slider">200dp</dimen>
+    <dimen name="activity_home_logo_width">200dp</dimen>
+    <dimen name="activity_home_logo_height">200dp</dimen>
+    <dimen name="activity_home_spinner">100dp</dimen>
+    <dimen name="activity_home_circle_indicator">30dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_15">15dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="activity_news_content_recylerview">200dp</dimen>
+    <dimen name="activity_news_content_cardview">250dp</dimen>
+</resources>
