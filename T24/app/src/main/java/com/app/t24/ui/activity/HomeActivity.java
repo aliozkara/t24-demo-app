@@ -129,13 +129,14 @@ public class HomeActivity extends AppCompatActivity implements Spinner.OnItemSel
     }
 
     private void splashScreen(){
+        // start loading dialog
+        materialDialog = AndroidUtilities.showProgressDialog(HomeActivity.this, R.string.str_uploading);
+        materialDialog.show();
+
         final Handler splashHandler = new Handler();
         Runnable splashRunnable = new Runnable() {
             public void run() {
                 activity_home_rl_splash.setVisibility(View.GONE);
-                // start loading dialog
-                materialDialog = AndroidUtilities.showProgressDialog(HomeActivity.this, R.string.str_uploading);
-                materialDialog.show();
             }
         };
         splashHandler.postDelayed(splashRunnable, splashScreenDuration);
@@ -177,10 +178,7 @@ public class HomeActivity extends AppCompatActivity implements Spinner.OnItemSel
         // get the news list in RecylerView
         getNews(2, false, newsCurrentCategory);
 
-        // destroy the dialog
-        if(materialDialog != null){
-            materialDialog.dismiss();
-        }
+        dissmisDialog();
 
         // get the news list every 120 seconds in Viewpager and RecylerView
         final Handler updateHandler = new Handler();
@@ -285,17 +283,20 @@ public class HomeActivity extends AppCompatActivity implements Spinner.OnItemSel
                         }
                     } catch (NullPointerException ex) {
                         AndroidUtilities.showDialog(HomeActivity.this, R.string.str_message_internet_error);
+                        dissmisDialog();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<NewsModel> call, Throwable t) {
                     AndroidUtilities.showDialog(HomeActivity.this, R.string.str_message_internet_error);
+                    dissmisDialog();
                 }
             });
         }
         else{
             AndroidUtilities.showDialog(HomeActivity.this, R.string.str_message_internet_refused);
+            dissmisDialog();
         }
 
     }
@@ -330,17 +331,20 @@ public class HomeActivity extends AppCompatActivity implements Spinner.OnItemSel
                         }
                     } catch (NullPointerException ex) {
                         AndroidUtilities.showDialog(HomeActivity.this, R.string.str_message_internet_error);
+                        dissmisDialog();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<CategoriesModel> call, Throwable t) {
                     AndroidUtilities.showDialog(HomeActivity.this, R.string.str_message_internet_error);
+                    dissmisDialog();
                 }
             });
         }
         else {
             AndroidUtilities.showDialog(HomeActivity.this, R.string.str_message_internet_refused);
+            dissmisDialog();
         }
 
     }
@@ -382,6 +386,12 @@ public class HomeActivity extends AppCompatActivity implements Spinner.OnItemSel
             }
         });
 
+    }
+
+    private void dissmisDialog(){
+        if(materialDialog != null){
+            materialDialog.dismiss();
+        }
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.app.t24.R;
 import com.app.t24.model.entity.NewsCategoriesItem;
 import com.app.t24.model.rest.NewsCategoriesModel;
@@ -69,6 +70,7 @@ public class NewsContentActivity extends AppCompatActivity {
     // news web url for sharing
     private String newsUrl = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +112,10 @@ public class NewsContentActivity extends AppCompatActivity {
 
         if (ConnectionBuddy.getInstance().hasNetworkConnection()) {
 
+            // start loading dialog
+            final MaterialDialog materialDialog = AndroidUtilities.showProgressDialog(NewsContentActivity.this, R.string.str_uploading);
+            materialDialog.show();
+
             RestEndPoint retroInterface = RestClient.createService(RestEndPoint.class);
             Call<NewsContentModel> call = retroInterface.getNewsContent(param);
             call.enqueue(new Callback<NewsContentModel>() {
@@ -130,16 +136,19 @@ public class NewsContentActivity extends AppCompatActivity {
 
                             // get category news with category id
                             getCategoryNews(currentNewsCategory, 1);
+                            materialDialog.dismiss();
 
                         }
                     } catch (NullPointerException ex) {
                         AndroidUtilities.showDialog(NewsContentActivity.this, R.string.str_message_internet_error);
+                        materialDialog.dismiss();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<NewsContentModel> call, Throwable t) {
                     AndroidUtilities.showDialog(NewsContentActivity.this, R.string.str_message_internet_error);
+                    materialDialog.dismiss();
                 }
             });
 
